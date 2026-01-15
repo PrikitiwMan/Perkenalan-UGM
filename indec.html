@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Universitas Gadjah Mada - Kampus Perjuangan</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        overflow-x: hidden;
+        background: linear-gradient(135deg, #f5f7fa 0%, #e8f0fe 100%);
+        color: #2c3e50;
+      }
+
+      /* Hero Section */
+      .hero {
+        min-height: 100vh;
+        background: linear-gradient(
+          135deg,
+          #667eea 0%,
+          #764ba2 50%,
+          #f093fb 100%
+        );
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        padding: 2rem;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(
+          circle,
+          rgba(255, 255, 255, 0.1) 1px,
+          transparent 1px
+        );
+        background-size: 50px 50px;
+        animation: moveBackground 20s linear infinite;
+        opacity: 0.3;
+      }
+
+      @keyframes moveBackground {
+        0% {
+          transform: translate(0, 0);
+        }
+        100% {
+          transform: translate(50px, 50px);
+        }
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        right: 0;
+        height: 150px;
+        background: linear-gradient(to top, #f5f7fa, transparent);
+      }
+
+      .hero-content {
+        text-align: center;
+        z-index: 2;
+        max-width: 900px;
+      }
+
+      .logo {
+        width: 180px;
+        height: 180px;
+        margin: 0 auto 2rem;
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        backdrop-filter: blur(20px);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2),
+          0 0 0 15px rgba(255, 255, 255, 0.1),
+          0 0 0 30px rgba(255, 255, 255, 0.05);
+        animation: float 4s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0) rotate(0deg);
+        }
+        25% {
+          transform: translateY(-15px) rotate(2deg);
+        }
+        75% {
+          transform: translateY(-15px) rotate(-2deg);
+        }
+      }
+
+      .logo-text {
+        font-size: 4.5rem;
+        font-weight: 900;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        height: 200px;
+        width: 200px;
+      }
+
+      h1 {
+        font-size: 3.8rem;
+        margin-bottom: 1.5rem;
+        color: #ffffff;
+        text-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        font-weight: 800;
+        letter-spacing: -1px;
+      }
+
+      .tagline {
+        font-size: 1.4rem;
+        margin-bottom: 2.5rem;
+        color: rgba(255, 255, 255, 0.95);
+        font-weight: 300;
+        line-height: 1.8;
+      }
+
+      .cta-button {
+        display: inline-block;
+        padding: 1.2rem 3rem;
+        background: linear-gradient(135deg, #ffffff, #f0f0f0);
+        color: #667eea;
+        text-decoration: none;
+        border-radius: 50px;
+        font-weight: 700;
+        font-size: 1.1rem;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .cta-button::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.3),
+          transparent
+        );
+        transition: left 0.5s;
+      }
+
+      .cta-button:hover::before {
+        left: 100%;
+      }
+
+      .cta-button:hover {
+        transform: translateY(-5px) scale(1.05);
+        box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+      }
+
+      /* Stats Section */
+      .stats {
+        background: linear-gradient(to bottom, #f5f7fa, #ffffff);
+        padding: 5rem 2rem;
+        position: relative;
+      }
+
+      .stats-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2.5rem;
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+
+      .stat-card {
+        background: linear-gradient(135deg, #ffffff, #f8f9ff);
+        padding: 3rem 2rem;
+        border-radius: 30px;
+        text-align: center;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        border: 2px solid rgba(102, 126, 234, 0.1);
+        box-shadow: 0 10px 40px rgba(102, 126, 234, 0.08);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .stat-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 5px;
+        background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+        transform: scaleX(0);
+        transition: transform 0.4s;
+      }
+
+      .stat-card:hover::before {
+        transform: scaleX(1);
+      }
+
+      .stat-card:hover {
+        transform: translateY(-15px);
+        border-color: #667eea;
+        box-shadow: 0 20px 60px rgba(102, 126, 234, 0.2);
+      }
+
+      .stat-number {
+        font-size: 3.5rem;
+        font-weight: 900;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 0.8rem;
+      }
+
+      .stat-label {
+        font-size: 1.1rem;
+        color: #5a6c7d;
+        font-weight: 500;
+      }
+
+      /* About Section */
+      .about {
+        padding: 7rem 2rem;
+        max-width: 1400px;
+        margin: 0 auto;
+        background: linear-gradient(to bottom, #ffffff, #f5f7fa);
+      }
+
+      .section-title {
+        font-size: 3rem;
+        text-align: center;
+        margin-bottom: 1rem;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        font-weight: 800;
+      }
+
+      .section-subtitle {
+        text-align: center;
+        color: #6b7c8d;
+        font-size: 1.2rem;
+        margin-bottom: 4rem;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .about-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2.5rem;
+        margin-top: 3rem;
+      }
+
+      .about-card {
+        background: linear-gradient(135deg, #ffffff, #fafbff);
+        padding: 2.5rem;
+        border-radius: 25px;
+        border: 2px solid rgba(102, 126, 234, 0.1);
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 5px 30px rgba(102, 126, 234, 0.05);
+      }
+
+      .about-card::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        right: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(
+          circle,
+          rgba(102, 126, 234, 0.05),
+          transparent 70%
+        );
+        transition: transform 0.6s;
+      }
+
+      .about-card:hover::before {
+        transform: translate(-25%, -25%);
+      }
+
+      .about-card:hover {
+        border-color: #667eea;
+        transform: translateY(-10px);
+        box-shadow: 0 15px 50px rgba(102, 126, 234, 0.15);
+      }
+
+      .about-card h3 {
+        color: #667eea;
+        margin-bottom: 1.2rem;
+        font-size: 1.6rem;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+      }
+
+      .about-card p {
+        line-height: 1.9;
+        color: #5a6c7d;
+        font-size: 1.05rem;
+      }
+
+      /* Faculties Section */
+      .faculties {
+        padding: 7rem 2rem;
+        background: linear-gradient(
+          135deg,
+          #f5f7fa 0%,
+          #e8f0fe 50%,
+          #fef5ff 100%
+        );
+      }
+
+      .faculties-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        max-width: 1400px;
+        margin: 3rem auto 0;
+      }
+
+      .faculty-card {
+        background: linear-gradient(135deg, #ffffff, #fefeff);
+        padding: 2.5rem;
+        border-radius: 25px;
+        border: 2px solid rgba(102, 126, 234, 0.1);
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        cursor: pointer;
+        box-shadow: 0 5px 25px rgba(102, 126, 234, 0.06);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .faculty-card::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+        transform: scaleX(0);
+        transition: transform 0.4s;
+      }
+
+      .faculty-card:hover::after {
+        transform: scaleX(1);
+      }
+
+      .faculty-card:hover {
+        border-color: #667eea;
+        transform: translateY(-12px) scale(1.02);
+        box-shadow: 0 20px 50px rgba(102, 126, 234, 0.2);
+      }
+
+      .faculty-icon {
+        width: 80px;
+        height: 80px;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+        box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        transition: all 0.4s;
+      }
+
+      .faculty-card:hover .faculty-icon {
+        transform: rotateY(360deg) scale(1.1);
+      }
+
+      .faculty-card h3 {
+        color: #2c3e50;
+        margin-bottom: 0.8rem;
+        font-size: 1.4rem;
+        font-weight: 700;
+      }
+
+      .faculty-card p {
+        color: #6b7c8d;
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+
+      /* Achievements Section */
+      .achievements {
+        padding: 7rem 2rem;
+        background: linear-gradient(to bottom, #ffffff, #f5f7fa);
+      }
+
+      .achievements-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2.5rem;
+        max-width: 1400px;
+        margin: 3rem auto 0;
+      }
+
+      .achievement-card {
+        background: linear-gradient(135deg, #ffffff, #fafbff);
+        padding: 2.5rem;
+        border-radius: 25px;
+        border-left: 6px solid transparent;
+        border-image: linear-gradient(to bottom, #667eea, #764ba2) 1;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        box-shadow: 0 5px 30px rgba(102, 126, 234, 0.08);
+      }
+
+      .achievement-card:hover {
+        transform: translateX(15px);
+        box-shadow: 0 10px 50px rgba(102, 126, 234, 0.15);
+      }
+
+      .achievement-card h3 {
+        color: #667eea;
+        margin-bottom: 1.2rem;
+        font-size: 1.5rem;
+        font-weight: 700;
+      }
+
+      .achievement-card p {
+        color: #5a6c7d;
+        line-height: 1.8;
+        font-size: 1.05rem;
+      }
+
+      /* Admission Section */
+      .admission {
+        padding: 7rem 2rem;
+        background: linear-gradient(
+          135deg,
+          #667eea 0%,
+          #764ba2 50%,
+          #f093fb 100%
+        );
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .admission::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(
+          circle,
+          rgba(255, 255, 255, 0.1) 1px,
+          transparent 1px
+        );
+        background-size: 40px 40px;
+        animation: rotatePattern 30s linear infinite;
+      }
+
+      @keyframes rotatePattern {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      .admission-content {
+        max-width: 900px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 2;
+      }
+
+      .admission h2 {
+        font-size: 3rem;
+        margin-bottom: 1.5rem;
+        color: #ffffff;
+        font-weight: 800;
+      }
+
+      .admission p {
+        font-size: 1.3rem;
+        margin-bottom: 2.5rem;
+        line-height: 1.8;
+        color: rgba(255, 255, 255, 0.95);
+      }
+
+      .admission-buttons {
+        display: flex;
+        gap: 1.5rem;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .admission-btn {
+        padding: 1.2rem 2.5rem;
+        background: rgba(255, 255, 255, 0.95);
+        color: #667eea;
+        text-decoration: none;
+        border-radius: 50px;
+        font-weight: 700;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      }
+
+      .admission-btn:hover {
+        background: #ffffff;
+        transform: translateY(-8px) scale(1.05);
+        box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+      }
+
+      /* Footer */
+      footer {
+        background: linear-gradient(to bottom, #2c3e50, #1a252f);
+        padding: 4rem 2rem;
+        text-align: center;
+        color: rgba(255, 255, 255, 0.8);
+      }
+
+      footer p {
+        margin-bottom: 0.8rem;
+        line-height: 1.8;
+      }
+
+      footer a {
+        color: #f093fb;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      footer a:hover {
+        color: #ffffff;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 2.2rem;
+        }
+
+        .tagline {
+          font-size: 1.1rem;
+        }
+
+        .stat-number {
+          font-size: 2.5rem;
+        }
+
+        .section-title {
+          font-size: 2.2rem;
+        }
+
+        .logo {
+          width: 140px;
+          height: 140px;
+        }
+
+        .logo-text {
+          font-size: 3.5rem;
+        }
+      }
+
+      /* Scroll Animation */
+      .fade-in {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+
+      .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Decorative Elements */
+      .floating-shape {
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+        animation: floatShape 20s ease-in-out infinite;
+      }
+
+      @keyframes floatShape {
+        0%,
+        100% {
+          transform: translate(0, 0) rotate(0deg);
+        }
+        33% {
+          transform: translate(30px, -30px) rotate(120deg);
+        }
+        66% {
+          transform: translate(-20px, 20px) rotate(240deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div
+        class="floating-shape"
+        style="width: 100px; height: 100px; top: 10%; left: 10%"
+      ></div>
+      <div
+        class="floating-shape"
+        style="
+          width: 150px;
+          height: 150px;
+          top: 60%;
+          right: 15%;
+          animation-delay: -5s;
+        "
+      ></div>
+      <div
+        class="floating-shape"
+        style="
+          width: 80px;
+          height: 80px;
+          bottom: 15%;
+          left: 20%;
+          animation-delay: -10s;
+        "
+      ></div>
+
+      <div class="hero-content">
+        <div class="logo">
+          <img src="./LambangUGM.png" class="logo-text" alt="" />
+        </div>
+        <h1>UNIVERSITAS GADJAH MADA</h1>
+        <p class="tagline">
+          Kampus Perjuangan • Berkelas Dunia • Mengabdi untuk Rakyat Banyak
+        </p>
+        <a href="#about" class="cta-button">Jelajahi UGM</a>
+      </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+      <div class="stats-container">
+        <div class="stat-card fade-in">
+          <div class="stat-number">224</div>
+          <div class="stat-label">Peringkat Dunia QS WUR 2026</div>
+        </div>
+        <div class="stat-card fade-in">
+          <div class="stat-number">18</div>
+          <div class="stat-label">Fakultas</div>
+        </div>
+        <div class="stat-card fade-in">
+          <div class="stat-number">250+</div>
+          <div class="stat-label">Program Studi</div>
+        </div>
+        <div class="stat-card fade-in">
+          <div class="stat-number">75+</div>
+          <div class="stat-label">Tahun Pengabdian</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+      <h2 class="section-title">Mengapa Memilih UGM?</h2>
+      <p class="section-subtitle">
+        Bergabunglah dengan ribuan mahasiswa berprestasi di universitas
+        terkemuka Indonesia
+      </p>
+      <div class="about-content">
+        <div class="about-card fade-in">
+          <h3>🏛️ Sejarah Perjuangan</h3>
+          <p>
+            Didirikan pada 19 Desember 1949, UGM lahir dari semangat perjuangan
+            kemerdekaan bangsa. Nama Gadjah Mada mengandung semangat persatuan
+            nusantara yang menjadi jati diri universitas sebagai kampus
+            nasional, perjuangan, dan Pancasila.
+          </p>
+        </div>
+        <div class="about-card fade-in">
+          <h3>🌍 Reputasi Internasional</h3>
+          <p>
+            Peringkat ke-224 dunia (QS WUR 2026), UGM adalah salah satu
+            universitas terbaik di Indonesia. 26 bidang ilmu masuk Top 500
+            dunia, dengan keunggulan di bidang Geography, Agriculture, dan
+            Engineering.
+          </p>
+        </div>
+        <div class="about-card fade-in">
+          <h3>🎓 Pendidikan Berkualitas</h3>
+          <p>
+            Dengan 18 fakultas, 1 Sekolah Vokasi, dan 1 Sekolah Pascasarjana,
+            UGM menawarkan lebih dari 250 program studi dari Diploma hingga
+            Doktor dengan akreditasi terbaik dan pengakuan internasional.
+          </p>
+        </div>
+        <div class="about-card fade-in">
+          <h3>🔬 Riset & Inovasi</h3>
+          <p>
+            UGM memiliki 24 pusat penelitian berkelas dunia. Kontribusi nyata
+            dalam SDGs: Top 50 dunia untuk Tanpa Kemiskinan, Energi Bersih, dan
+            Pertumbuhan Ekonomi (THE Impact Rankings 2023).
+          </p>
+        </div>
+        <div class="about-card fade-in">
+          <h3>🏫 Kampus Hijau</h3>
+          <p>
+            Kampus seluas 360 hektar di Bulaksumur, Yogyakarta dengan fasilitas
+            lengkap: perpustakaan modern, laboratorium canggih, masjid kampus
+            (salah satu terbesar di Asia Tenggara), stadion, dan transportasi
+            kampus ramah lingkungan.
+          </p>
+        </div>
+        <div class="about-card fade-in">
+          <h3>🌟 Alumni Berprestasi</h3>
+          <p>
+            Melahirkan tokoh-tokoh bangsa termasuk Presiden Joko Widodo,
+            menteri, entrepreneur sukses, dan pemimpin di berbagai bidang yang
+            mengabdi untuk kemajuan Indonesia dan dunia.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Faculties Section -->
+    <section class="faculties">
+      <h2 class="section-title">18 Fakultas di UGM</h2>
+      <p class="section-subtitle">
+        Pilih bidang studi yang sesuai dengan passion dan cita-citamu
+      </p>
+      <div class="faculties-grid">
+        <div class="faculty-card fade-in">
+          <div class="faculty-icon">🏥</div>
+          <h3>Kedokteran</h3>
+          <p>
+            Fakultas tertua UGM, melahirkan dokter berkualitas tinggi untuk
+            Indonesia
+          </p>
+        </div>
+        <div class="faculty-card fade-in">
+          <div class="faculty-icon">⚖️</div>
+          <h3>Hukum</h3>
+          <p>Pusat kajian hukum terkemuka di Indonesia</p>
+        </div>
+        <div class="faculty-card fade-in">
+          <div class="faculty-icon">⚙️</div>
+          <h3>Teknik</h3>
+          <p>Mencetak engineer dan inovator masa depan</p>
+        </div>
+        <div class="faculty-card fade-in">
+          <div class="faculty-icon">💰</div>
+          <h3>Ekonomika dan Bisnis</h3>
+          <p>Membentuk pemimpin bisnis dan ekonom handal</p>
+        </div>
+        <div class="faculty-card fade-in">
+          <div class="faculty-icon">🌾</div>
+          <h3>Pertanian</h3>
+          <p>Solusi ketahanan pangan berkelanjutan</p>
+        </div>
+        <div class="faculty-card fade-in">
+          <div class="faculty-icon">📚</div>
+          <h3>Ilmu Budaya</h3>
+          <p>Pelestari dan pengembang budaya nusantara</p>
+        </div>
+        <div class="faculty-card fade-in">
+          <div class="faculty-icon">🏛️</div>
+          <h3>Ilmu Sosial dan Politik</h3>
+          <p>Penggerak perubahan sosial positif</p>
+        </div>
+        <div class="faculty-card fade-in">
+          <div class="faculty-icon">🧪</div>
+          <h3>MIPA</h3>
+          <p>Riset sains dan teknologi terdepan</p>
+        </div>
+        <div class="faculty-card fade-in">
+          <div class="faculty-icon">🐾</div>
+          <h3>Kedokteran Hewan</h3>
+          <p>Kesehatan hewan dan kesejahteraan</p>
+        </div>
+        <div class="faculty-card fade-in">
+          <div class="faculty-icon">🌲</div>
+          <h3>Kehutanan</h3>
+          <p>Konservasi dan pengelolaan hutan lestari</p>
+        </div>
+        <div class="faculty-card fade-in">
+          <div class="faculty-icon">🍃</div>
+          <h3>Teknologi Pertanian</h3>
+          <p>Inovasi teknologi pangan modern</p>
+        </div>
+        <div class="faculty-card fade-in">
+          <div class="faculty-icon">🧠</div>
+          <h3>Psikologi</h3>
+          <p>Memahami perilaku dan mental manusia</p>
+        </div>
+        <div class="faculty-card fade-in">
+          <div class="faculty-icon">🦷</div>
+          <h3>Kedokteran Gigi</h3>
+          <p>Kesehatan gigi dan mulut berkualitas</p>
+        </div>
+        <div class="faculty-card fade-in">
+          <div class="faculty-icon">🌊</div>
+          <h3>Geografi</h3>
+          <p>Top 150 dunia (QS WUR by Subject)</p>
+        </div>
+        <div class="faculty-card fade-in">
+          <div class="faculty-icon">💊</div>
+          <h3>Farmasi</h3>
+          <p>Riset dan pengembangan obat-obatan</p>
+        </div>
+        <div class="faculty-card fade-in">
+          <div class="faculty-icon">🎨</div>
+          <h3>Ilmu Peternakan</h3>
+          <p>Peternakan modern dan berkelanjutan</p>
+        </div>
+        <div class="faculty-card fade-in">
+          <div class="faculty-icon">🔬</div>
+          <h3>Biologi</h3>
+          <p>Studi keanekaragaman hayati Indonesia</p>
+        </div>
+        <div class="faculty-card fade-in">
+          <div class="faculty-icon">🌐</div>
+          <h3>Filsafat</h3>
+          <p>Membentuk pemikir kritis masa depan</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section class="achievements">
+      <h2 class="section-title">Prestasi & Pencapaian</h2>
+      <p class="section-subtitle">
+        UGM terus berprestasi di kancah nasional dan internasional
+      </p>
+      <div class="achievements-grid">
+        <div class="achievement-card fade-in">
+          <h3>🏆 Peringkat Nasional #2</h3>
+          <p>
+            Peringkat ke-2 terbaik di Indonesia versi QS World University
+            Rankings 2026, pesaing ketat UI untuk posisi puncak universitas
+            terbaik Indonesia.
+          </p>
+        </div>
+        <div class="achievement-card fade-in">
+          <h3>🌏 Top 250 Dunia</h3>
+          <p>
+            Ranking 224 dunia (QS WUR 2026), naik dari peringkat 239 tahun lalu.
+            Terus meningkat di kancah internasional dengan reputasi global yang
+            solid.
+          </p>
+        </div>
+        <div class="achievement-card fade-in">
+          <h3>🎯 26 Bidang Ilmu Top 500 Dunia</h3>
+          <p>
+            26 program studi masuk ranking Top 500 dunia (QS WUR by Subject
+            2025). Mendapat penghargaan dari Kementerian Pendidikan Tinggi atas
+            pencapaian luar biasa ini.
+          </p>
+        </div>
+        <div class="achievement-card fade-in">
+          <h3>🌱 Kampus Berkelanjutan</h3>
+          <p>
+            Top 50 dunia untuk SDGs: Tanpa Kemiskinan (23), Energi Bersih (33),
+            Pertumbuhan Ekonomi (46) - THE Impact Rankings 2023. Komitmen nyata
+            untuk masa depan berkelanjutan.
+          </p>
+        </div>
+        <div class="achievement-card fade-in">
+          <h3>🔬 Akreditasi Internasional</h3>
+          <p>
+            Program Kimia terakreditasi Royal Society of Chemistry (RSC) UK.
+            Berbagai program studi berakreditasi internasional dari ASIIN, ABET,
+            dan lembaga internasional lainnya.
+          </p>
+        </div>
+        <div class="achievement-card fade-in">
+          <h3>👥 Jaringan Global</h3>
+          <p>
+            Ribuan mahasiswa internasional dari Asia, Eropa, Australia, Amerika,
+            dan Afrika. Kerjasama dengan 300+ universitas terkemuka di seluruh
+            dunia.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Admission Section -->
+    <section class="admission">
+      <div class="admission-content">
+        <h2>Siap Bergabung dengan UGM?</h2>
+        <p>
+          UGM membuka berbagai jalur seleksi untuk siswa SMA/MA/SMK yang
+          berprestasi. Mulai perjalananmu menuju kampus impian dan wujudkan
+          cita-citamu bersama UGM!
+        </p>
+        <div class="admission-buttons">
+          <a href="https://um.ugm.ac.id/snbp-2025/" class="admission-btn"
+            >SNBP 2025</a
+          >
+          <a href="https://um.ugm.ac.id/snbt-2025/" class="admission-btn"
+            >SNBT 2025</a
+          >
+          <a
+            href="https://um.ugm.ac.id/seleksi-mandiri-2025/"
+            class="admission-btn"
+            >Seleksi Mandiri</a
+          >
+          <a
+            href="https://um.ugm.ac.id/deskripsi-program-internasional-2/"
+            class="admission-btn"
+            >Program IUP</a
+          >
+        </div>
+        <p style="margin-top: 2.5rem; font-size: 1.1rem">
+          Informasi lengkap:
+          <a
+            href="https://um.ugm.ac.id"
+            target="_blank"
+            style="color: #ffffff; text-decoration: underline"
+            >um.ugm.ac.id</a
+          >
+        </p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p style="font-size: 1.1rem; margin-bottom: 1.5rem; color: #ffffff">
+        &copy; 2025 Universitas Gadjah Mada
+      </p>
+      <p>Website informatif untuk calon mahasiswa baru</p>
+      <p>Kampus: Bulaksumur, Yogyakarta 55281 | WA: +628112941949</p>
+      <p>Email: umugm@ugm.ac.id</p>
+      <p style="margin-top: 1.5rem">
+        Kunjungi: <a href="https://ugm.ac.id" target="_blank">ugm.ac.id</a> |
+        <a href="https://um.ugm.ac.id" target="_blank">um.ugm.ac.id</a>
+      </p>
+    </footer>
+
+    <script>
+      // Scroll Animation
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -100px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      }, observerOptions);
+
+      document
+        .querySelectorAll(".fade-in")
+        .forEach((el) => observer.observe(el));
+
+      // Smooth Scroll
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        });
+      });
+
+      // Dynamic Stats Counter
+      const statNumbers = document.querySelectorAll(".stat-number");
+      const animateValue = (obj, start, end, duration) => {
+        let startTimestamp = null;
+        const step = (timestamp) => {
+          if (!startTimestamp) startTimestamp = timestamp;
+          const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+          const value = Math.floor(progress * (end - start) + start);
+          obj.textContent =
+            value + (end === 224 || end === 75 ? "" : end === 18 ? "" : "+");
+          if (progress < 1) {
+            window.requestAnimationFrame(step);
+          }
+        };
+        window.requestAnimationFrame(step);
+      };
+
+      const statsObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const target = entry.target;
+            const finalValue = parseInt(target.textContent);
+            animateValue(target, 0, finalValue, 2000);
+            statsObserver.unobserve(target);
+          }
+        });
+      });
+
+      statNumbers.forEach((stat) => statsObserver.observe(stat));
+
+      // Parallax effect for hero
+      window.addEventListener("scroll", () => {
+        const scrolled = window.pageYOffset;
+        const hero = document.querySelector(".hero-content");
+        if (hero && scrolled < window.innerHeight) {
+          hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+          hero.style.opacity = 1 - scrolled / window.innerHeight;
+        }
+      });
+    </script>
+  </body>
+</html>
